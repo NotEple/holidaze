@@ -12,16 +12,16 @@ export default function AllHotels() {
     "http://localhost:1337/api/places?populate=image"
   );
 
-  if (data === null || data.length === 0) {
-    return <div>There are no hotels at the moment, check back later...</div>;
-  }
-
   if (loading)
     return (
       <div className={styles.loadingContainer}>
         <div className={styles.loading}></div>
       </div>
     );
+
+  if (data === null || data.length === 0) {
+    return <div>There are no hotels at the moment, check back later...</div>;
+  }
 
   if (error)
     return (
@@ -102,9 +102,7 @@ export default function AllHotels() {
                       Delete
                     </button>
                   </>
-                ) : (
-                  ""
-                )}
+                ) : null}
               </div>
             </div>
           );

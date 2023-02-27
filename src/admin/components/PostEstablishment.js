@@ -47,7 +47,7 @@ export default function PostEstablishment(props) {
         data.append("files.image", values.image);
         data.append("data", JSON.stringify(formInfo));
 
-        const req = await fetch("http://localhost:1337/" + "api/places", {
+        const req = await fetch("http://localhost:1337/api/places", {
           method: "POST",
           headers: {
             authorization: `Bearer ${auth.jwt}`,

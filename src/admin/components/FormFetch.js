@@ -11,7 +11,7 @@ export default function FormFetch() {
   useEffect(() => {
     const FetchForms = async () => {
       try {
-        const res = await axios.get("http://localhost:1337/" + "api/forms", {
+        const res = await axios.get("http://localhost:1337/api/forms", {
           headers: {
             Authorization: `Bearer ${auth.jwt}`,
           },
