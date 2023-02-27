@@ -132,9 +132,7 @@ export default function PostEstablishment(props) {
           <p>Success!</p>
           <BsFillCheckCircleFill className={styles.formSuccessIcon} />
         </div>
-      ) : (
-        ""
-      )}
+      ) : null}
     </form>
   );
 }

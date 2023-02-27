@@ -1,0 +1,52 @@
+if (place.attributes.reserved === false) {
+  return (
+    <div key={place.id} className={styles.cardContainer}>
+      <img
+        src={
+          "http://localhost:1337" +
+          place.attributes.image.data[0].attributes.url
+        }
+        alt={place.id}
+        className={styles.cardImage}
+      />
+      <div className={styles.cardAboutContainer}>
+        <div className={styles.cardAboutText}>
+          <h2 className={styles.cardTitle}>{place.attributes.name}</h2>
+          <p className={styles.cardPrice}>{place.attributes.price},-</p>
+        </div>
+        <Link to={`/places/details/${place.id}`} className={styles.submit}>
+          Details
+        </Link>
+        {auth ? (
+          <>
+            <Delete id={place.id} />
+          </>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+<div key={place.id} className={styles.reservedCardContainer}>
+  <img
+    src={
+      "http://localhost:1337" + place.attributes.image.data[0].attributes.url
+    }
+    alt={place.id}
+    className={styles.reservedCardImage}
+  />
+  <div className={styles.cardAboutContainer}>
+    <div className={styles.cardAboutText}>
+      <h3 className={styles.cardTitle}>{place.attributes.name}</h3>
+      <p className={styles.cardPrice}>{place.attributes.price},-</p>
+    </div>
+    <Link to={`/places/details/${place.id}`} className={styles.submit}>
+      Details
+    </Link>
+    {auth ? (
+      <>
+        <Delete id={place.id} />
+      </>
+    ) : null}
+  </div>
+</div>;

@@ -9,7 +9,7 @@ export default function FormDelete({ id }) {
 
   const deleteContactMessage = async () => {
     try {
-      await axios.delete("http://localhost:1337/" + "api/forms/" + id, {
+      await axios.delete("http://localhost:1337/api/forms/" + id, {
         headers: {
           authorization: `Bearer ${auth.jwt}`,
         },
