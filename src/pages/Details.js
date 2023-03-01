@@ -3,12 +3,13 @@ import { useParams } from "react-router-dom";
 import styles from "../App.module.css";
 import useFetch from "../hooks/useFetch";
 import BookingModal from "../components/BookingModal";
+import { backend } from "../utils/api";
 
 export default function Details() {
   const { id } = useParams();
   const [modalOpen, setModalOpen] = useState(false);
   const { loading, error, data } = useFetch(
-    "http://localhost:1337/" + "api/places/" + id + "?populate=image"
+    backend + "api/places/" + id + "?populate=image"
   );
 
   if (loading)
@@ -27,10 +28,7 @@ export default function Details() {
     <div className={styles.container}>
       <div className={styles.detailsContainer}>
         <img
-          src={
-            "http://localhost:1337" +
-            data.attributes.image.data[0].attributes.url
-          }
+          src={data.attributes.image.data[0].attributes.url}
           alt={data.attributes.image.data[0].alternativeText}
           className={styles.detailsImage}
         />
