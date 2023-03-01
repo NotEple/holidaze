@@ -9,7 +9,7 @@ import { backend } from "../utils/api";
 
 const schema = yup.object().shape({
   title: yup.string().required("Enter a title"),
-  name: yup.string().required("Enter your full name"),
+  full_name: yup.string().required("Enter your full name"),
   email: yup.string().email().required("Enter your email"),
   subject: yup
     .string()
@@ -80,9 +80,9 @@ export default function ContactForm() {
         <input
           className={styles.input}
           type="text"
-          name="name"
+          name="full_name"
           placeholder="Full name..."
-          {...register("name")}
+          {...register("full_name")}
         />
         {errors.name && (
           <span className={styles.formError}>{errors.name.message}</span>

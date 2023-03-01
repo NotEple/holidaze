@@ -409,7 +409,7 @@ hr {
   color: var(--main-white);
 }
 
-.reservedCardContainer::before {
+/* .reservedCardContainer::before {
   content: "Reserved";
   position: absolute;
   right: 0;
@@ -418,7 +418,7 @@ hr {
   background: linear-gradient(45deg, rgb(0, 153, 255), rgb(0, 47, 255));
   color: white;
   font-family: var(--main-font-bold);
-}
+} */
 
 .cardImage {
   width: 100%;

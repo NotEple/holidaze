@@ -47,7 +47,9 @@ export default function FormFetch() {
             <p className={styles.formFetchTitle}>
               Title: {form.attributes.title}
             </p>
-            <p className={styles.formFetchName}>Name: {form.attributes.name}</p>
+            <p className={styles.formFetchName}>
+              Name: {form.attributes.full_name}
+            </p>
             <p className={styles.formFetchEmail}>
               Email: {form.attributes.email}
             </p>
