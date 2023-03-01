@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import axios from "axios";
 import styles from "../../App.module.css";
 import AuthContext from "../../context/AuthContext";
+import { backend } from "../../utils/api";
 
 export default function Delete({ id }) {
   const [auth] = useContext(AuthContext);
 
   async function removeReserved() {
     try {
-      await axios.put("http://localhost:1337/api/places/" + id, {
+      await axios.put(backend + "api/places/" + id, {
         data: {
           full_name: null,
           email: null,

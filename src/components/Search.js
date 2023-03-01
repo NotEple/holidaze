@@ -4,14 +4,14 @@ import Select from "react-select";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "../App.module.css";
-import { local } from "../utils/api";
+import { backend } from "../utils/api";
 
 export default function Search() {
   const [place, setPlace] = useState([]);
 
   useEffect(() => {
     const getPlace = async () => {
-      const res = await axios.get(local + "api/places?populate=image");
+      const res = await axios.get(backend + "api/places?populate=image");
       setPlace(res.data.data);
     };
     getPlace();
@@ -23,10 +23,7 @@ export default function Search() {
       label: (
         <Link to={`/places/details/${place.id}`} className={styles.searchLink}>
           <img
-            src={
-              "http://localhost:1337" +
-              place.attributes.image.data[0].attributes.url
-            }
+            src={place.attributes.image.data[0].attributes.url}
             alt={place.attributes.image.data[0].attributes.alternativeText}
             className={styles.searchImage}
           />

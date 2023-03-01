@@ -4,6 +4,7 @@ import AuthContext from "../../context/AuthContext";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { BsFillCheckCircleFill } from "react-icons/bs";
+import { backend } from "../../utils/api";
 
 export default function PostEstablishment(props) {
   const [auth] = useContext(AuthContext);
@@ -47,7 +48,7 @@ export default function PostEstablishment(props) {
         data.append("files.image", values.image);
         data.append("data", JSON.stringify(formInfo));
 
-        const req = await fetch("http://localhost:1337/api/places", {
+        const req = await fetch(backend + "api/places", {
           method: "POST",
           headers: {
             authorization: `Bearer ${auth.jwt}`,

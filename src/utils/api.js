@@ -9,4 +9,4 @@ const corsApi = cors + "http://holidaze-backend-epledev.herokuapp.com/";
 
 export const jwt = "api/auth/local";
 
-export const baseUrl = corsApi;
+export const backend = "https://strapi-production-30a7.up.railway.app/";

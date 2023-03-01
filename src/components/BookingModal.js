@@ -7,7 +7,7 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import * as yup from "yup";
 import styles from "../App.module.css";
-import { local } from "../utils/api.js";
+import { backend } from "../utils/api.js";
 
 const schema = yup.object().shape({
   full_name: yup
@@ -33,7 +33,7 @@ export default function BookingModal({ modalClosed }) {
   async function book(data) {
     setSubmit(true);
     try {
-      const book = await axios.put(local + "api/places/" + id, {
+      const book = await axios.put(backend + "api/places/" + id, {
         data: {
           full_name: data.full_name,
           email: data.email,

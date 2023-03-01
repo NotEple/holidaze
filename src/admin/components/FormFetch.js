@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import styles from "../../App.module.css";
 import AuthContext from "../../context/AuthContext";
+import { backend } from "../../utils/api";
 import FormDelete from "./FormDelete";
 
 export default function FormFetch() {
@@ -11,7 +12,7 @@ export default function FormFetch() {
   useEffect(() => {
     const FetchForms = async () => {
       try {
-        const res = await axios.get("http://localhost:1337/api/forms", {
+        const res = await axios.get(backend + "api/forms", {
           headers: {
             Authorization: `Bearer ${auth.jwt}`,
           },

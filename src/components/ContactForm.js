@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import * as yup from "yup";
 import styles from "../App.module.css";
-import { local } from "../utils/api";
+import { backend } from "../utils/api";
 
 const schema = yup.object().shape({
   title: yup.string().required("Enter a title"),
@@ -35,7 +35,7 @@ export default function ContactForm() {
     setSubmitError(null);
 
     try {
-      const send = await axios.post(local + "api/forms", {
+      const send = await axios.post(backend + "api/forms", {
         data: {
           title: data.title,
           full_name: data.full_name,

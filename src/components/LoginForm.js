@@ -7,8 +7,9 @@ import * as yup from "yup";
 import styles from "../App.module.css";
 import { jwt } from "../utils/api";
 import AuthContext from "../context/AuthContext";
+import { backend } from "../utils/api";
 
-const url = "http://localhost:1337/" + jwt;
+const url = backend + jwt;
 
 const schema = yup.object().shape({
   username: yup.string().required("Enter your username"),

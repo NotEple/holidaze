@@ -4,6 +4,7 @@ import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import Delete from "./Delete";
+import { backend } from "../../utils/api";
 
 export default function ReservedFetch() {
   const [auth] = useContext(AuthContext);
@@ -11,14 +12,11 @@ export default function ReservedFetch() {
   useEffect(() => {
     const FetchReserved = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:1337/api/places?populate=image",
-          {
-            headers: {
-              Authorization: `Bearer ${auth.jwt}`,
-            },
-          }
-        );
+        const res = await axios.get(backend + "api/places?populate=image", {
+          headers: {
+            Authorization: `Bearer ${auth.jwt}`,
+          },
+        });
 
         setData(res.data.data);
       } catch (error) {
@@ -31,15 +29,12 @@ export default function ReservedFetch() {
 
   return (
     <div className={styles.reservedContainer}>
-      {data.forEach((reserved) => {
+      {data.map((reserved) => {
         if (reserved.attributes.reserved === true) {
           return (
             <div className={styles.reservedCardContainer} key={reserved.id}>
               <img
-                src={
-                  "http://localhost:1337" +
-                  reserved.attributes.image.data[0].attributes.url
-                }
+                src={reserved.attributes.image.data[0].attributes.url}
                 alt={
                   reserved.attributes.image.data[0].attributes.alternativeText
                 }

@@ -4,11 +4,12 @@ import styles from "../App.module.css";
 import useFetch from "../hooks/useFetch";
 import AuthContext from "../context/AuthContext";
 import Delete from "../components/Delete";
+import { backend } from "../utils/api";
 
 export default function AllHotels() {
   const [auth] = useContext(AuthContext);
   const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/places?populate=image"
+    backend + "api/places?populate=image"
   );
 
   if (loading)
@@ -27,16 +28,15 @@ export default function AllHotels() {
       <div className={styles.error}>{error} : Something went wrong...</div>
     );
 
+  console.log(data);
+
   return (
     <div className={styles.cardsContainer}>
       {data.map((place) => {
         return (
           <div key={place.id} className={styles.reservedCardContainer}>
             <img
-              src={
-                "http://localhost:1337" +
-                place.attributes.image.data[0].attributes.url
-              }
+              src={place.attributes.image.data[0].attributes.url}
               alt={place.id}
               className={styles.reservedCardImage}
             />
