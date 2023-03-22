@@ -32,7 +32,7 @@ export default function Details() {
           alt={data.attributes.image.data[0].alternativeText}
           className={styles.detailsImage}
         />
-        <h2 className={styles.subHeader}>{data.attributes.title}</h2>
+        <h2 className={styles.subHeader}>{data.attributes.name}</h2>
         <div className={styles.aboutText}>
           <p className={styles.about}>{data.attributes.about}</p>
           <p className={styles.price}>{data.attributes.price},-</p>
